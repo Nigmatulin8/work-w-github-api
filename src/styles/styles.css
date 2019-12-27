@@ -1,0 +1,11 @@
+#app {
+	width: 1250px;
+	margin: 0 auto;
+	padding: 10px;
+}
+
+body {
+	background: rgba(92, 129, 202, 1);
+	background:  
+	    linear-gradient(to left, rgba(92, 129, 202, 1) 0%, rgba(249, 140, 112, 1) 100%);
+}		
