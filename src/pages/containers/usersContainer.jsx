@@ -14,9 +14,18 @@ class UsersContainer extends React.Component {
     }
 
     render() {
-        return <UserComponent 
-                    users={this.props.search.search ? this.props.search.search : this.props.users.users}> 
-                </UserComponent>;
+        let list = new Array(this.props.search.search.newList)
+        list = Array.isArray(list[0]) ? list[0] : list;
+
+        if(this.props.users.users) {
+            return <UserComponent 
+                users={this.props.search.search ? list : this.props.users.users}> 
+            </UserComponent>;
+        }
+
+        else {
+            return <div>API rate limit exceeded</div>
+        }
     }
 }
 

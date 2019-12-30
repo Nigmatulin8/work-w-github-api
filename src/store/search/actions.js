@@ -1,16 +1,31 @@
-export const USER_SEARCH_REQUEST = 'USER_SEARCH_REQUEST';
+export const USER_SEARCH_REQUEST_SUCCESS = 'USER_SEARCH_REQUEST_SUCCESS';
 
-export function updateUserList(user_name, users) {
-    let newList = [];
-    
-    users.users.forEach(user => {
-        if(user.login.includes(user_name)) {
-            newList.push(user);
-        }
-    });
+const API_ROOT = 'https://api.github.com';
 
-    return {
-       type: USER_SEARCH_REQUEST,
-       payload: newList,
+export function updateUserList(user_name) {
+    let url = '';
+
+    if(user_name.length === 0) {
+        url = `${API_ROOT}/users`;
+    } 
+    else {
+        url = `${API_ROOT}/users${'/' + user_name}`;
     }
+
+    return dispatch => {
+        fetch(url).then(response => {
+            if(!response.ok) {
+              throw new Error('User not found. Please try again!')
+            }
+
+            return response.json();
+        }).then(newList => {
+            dispatch({
+                type: USER_SEARCH_REQUEST_SUCCESS,
+                payload: {
+                    newList,
+                }
+            });
+        });
+    };
 }

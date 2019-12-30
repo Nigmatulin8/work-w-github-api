@@ -119,3 +119,14 @@
 									   color-stop(0.72, rgb(73,125,189)),
 									   color-stop(0.86, rgb(28,58,148)));
 }*/
+
+@media (max-width: 375px) {
+	.user__full_info {
+		position: fixed;
+
+		max-height: 100%;
+		top: 70px;
+		right: -20px;
+		overflow-y: scroll;
+	}
+}

@@ -166,3 +166,25 @@
 .user__repo__download:hover {
 	background-color: rgb( 75, 183, 141 );
 }
+
+
+
+
+@media (max-width: 375px) {
+	.user__information {
+		width: 520px;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.user__shortInfo {
+		display: flex;
+		flex-wrap: wrap;
+		
+		justify-content: center;
+		margin-top: 15px;
+	}
+}
